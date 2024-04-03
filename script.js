@@ -56,9 +56,8 @@ async function updateResult() {
     
     const resultElement = document.getElementById('result');
     resultElement.innerHTML = `
-      <p>OneChunkUp has killed approximately ${totalMinotaursKilled} Minotaurs.</p>
-      <p><img src="Ensouled_minotaur_head.webp" alt="Ensouled Minotaur Head"> Minotaurs killed per minute: ${minotaursPerMinute.toFixed(2)}</p>
-      <p><img src="Ensouled_minotaur_head.webp" alt="Ensouled Minotaur Head"> Minotaurs killed per day: ${Math.floor(minotaursPerDay)} (Starting February 26th, 2024)</p>
+      <p>Limpwurt has killed approximately ${totalMinotaursKilled} Minotaurs,  starting February 26th, 2024</p>
+      <p><img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"> Avg. killed per minute: ${minotaursPerMinute.toFixed(2)} - <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"> Avg. killed per day: ${Math.floor(minotaursPerDay)}</p>
       <p><img src="Pure_essence.webp" alt="Pure Essence"> Estimated Pure Rune Essence obtained: ${pureRuneEssence}</p>
     `;
   } else {
