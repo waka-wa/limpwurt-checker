@@ -60,7 +60,7 @@ async function updateResult() {
   loadingElement.style.display = 'none';
 }
 
-const CACHE_DURATION = 60000; // Cache for 1 minute (60000 milliseconds)
+const CACHE_DURATION = 600000; // Cache for 10 minutes
 let cachedData = null;
 let cacheTimestamp = 0;
 
