@@ -1,4 +1,5 @@
 const startDate = new Date('2024-02-26');
+let minotaursKilled = 0;
 
 function calculateDuration(startDate) {
   const currentDate = new Date();
@@ -15,16 +16,16 @@ function calculateDuration(startDate) {
   return `${days}d${remainingHours}h${remainingMinutes}m${remainingSeconds}s`;
 }
 
-async function fetchPlayerEXP(playerName, skill, startTime) {
-  const apiUrl = `https://crystalmathlabs.com/api.php?type=trackehp&player=${playerName}&skill=${skill}&time=${startTime}`;
+async function fetchPlayerEXP(playerName, skill) {
+  const apiUrl = `https://osrs-hiscore-pulling.onrender.com/stats/${playerName}?skill=${skill}`;
   const response = await fetch(apiUrl);
-  const data = await response.text();
-  return parseInt(data, 10);
+  const data = await response.json();
+  return data.experience;
 }
 
 function calculateMinotaursKilled(expGained) {
-  const minotaursKilled = Math.floor(expGained / 40);
-  return minotaursKilled;
+  const newMinotaursKilled = Math.floor(expGained / 40);
+  return newMinotaursKilled;
 }
 
 function calculateMinotaursPerMinute(minotaursKilled, startDate) {
@@ -33,20 +34,25 @@ function calculateMinotaursPerMinute(minotaursKilled, startDate) {
   return minotaursPerMinute.toFixed(2);
 }
 
-async function main() {
+function updateMinotaurCount() {
+  minotaursKilled++;
+  updateResult();
+}
+
+async function updateResult() {
   const playerName = 'OneChunkUp';
-  const skill = 'Ranged';
+  const skill = 'ranged';
   const duration = calculateDuration(startDate);
 
-  const expGained = await fetchPlayerEXP(playerName, skill, duration);
-  const minotaursKilled = calculateMinotaursKilled(expGained);
-  const minotaursPerMinute = calculateMinotaursPerMinute(minotaursKilled, startDate);
+  const expGained = await fetchPlayerEXP(playerName, skill);
+  const calculatedMinotaursKilled = calculateMinotaursKilled(expGained);
+  const minotaursPerMinute = calculateMinotaursPerMinute(calculatedMinotaursKilled + minotaursKilled, startDate);
 
   const resultElement = document.getElementById('result');
   resultElement.innerHTML = `
-    <p>${playerName} has killed approximately ${minotaursKilled} Minotaurs since ${startDate.toDateString()}.</p>
+    <p>${playerName} has killed approximately ${calculatedMinotaursKilled + minotaursKilled} Minotaurs since ${startDate.toDateString()}.</p>
     <p>That's roughly ${minotaursPerMinute} Minotaurs per minute!</p>
   `;
 }
 
-main();
+updateResult();
