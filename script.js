@@ -22,9 +22,12 @@ function updateMinotaurCount() {
 }
 
 async function updateResult() {
+  const loadingElement = document.getElementById('loading');
+  loadingElement.style.display = 'block';
+
   const currentExp = await fetchPlayerEXP();
   console.log('Current EXP:', currentExp);
-  
+
   if (currentExp !== null) {
     const expGained = currentExp - startingExp;
     console.log('EXP Gained:', expGained);
@@ -52,6 +55,34 @@ async function updateResult() {
     `;
   } else {
     console.error('Failed to fetch player EXP.');
+  }
+
+  loadingElement.style.display = 'none';
+}
+
+const CACHE_DURATION = 60000; // Cache for 1 minute (60000 milliseconds)
+let cachedData = null;
+let cacheTimestamp = 0;
+
+async function fetchPlayerEXP() {
+  const currentTime = Date.now();
+  if (cachedData && currentTime - cacheTimestamp < CACHE_DURATION) {
+    console.log('Using cached data');
+    return cachedData;
+  }
+
+  const apiUrl = `https://osrs-hiscore-pulling.onrender.com/stats/OneChunkUp?skill=ranged`;
+
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    console.log('API Response:', data);
+    cachedData = data.experience;
+    cacheTimestamp = currentTime;
+    return data.experience;
+  } catch (error) {
+    console.error('Error fetching player EXP:', error);
+    return null;
   }
 }
 
