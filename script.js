@@ -1,4 +1,5 @@
 const startingExp = 20041506;
+const startTime = 1708977600;
 let minotaursKilled = 0;
 
 async function fetchPlayerEXP() {
@@ -31,9 +32,23 @@ async function updateResult() {
     const calculatedMinotaursKilled = Math.floor(expGained / 40);
     console.log('Calculated Minotaurs Killed:', calculatedMinotaursKilled);
     
+    const totalMinotaursKilled = calculatedMinotaursKilled + minotaursKilled;
+    
+    const currentTime = Math.floor(Date.now() / 1000);
+    const elapsedSeconds = currentTime - startTime;
+    
+    const minutesElapsed = elapsedSeconds / 60;
+    const minotaursPerMinute = totalMinotaursKilled / minutesElapsed;
+    const minotaursPerDay = minotaursPerMinute * 1440;
+    
+    const pureRuneEssence = Math.floor(totalMinotaursKilled / 20.2) * 15;
+    
     const resultElement = document.getElementById('result');
     resultElement.innerHTML = `
-      <p>OneChunkUp has killed approximately ${calculatedMinotaursKilled + minotaursKilled} Minotaurs.</p>
+      <p>OneChunkUp has killed approximately ${totalMinotaursKilled} Minotaurs.</p>
+      <p>Minotaurs killed per minute: ${minotaursPerMinute.toFixed(2)}</p>
+      <p>Minotaurs killed per day: ${Math.floor(minotaursPerDay)}</p>
+      <p>Estimated Pure Rune Essence obtained: ${pureRuneEssence}</p>
     `;
   } else {
     console.error('Failed to fetch player EXP.');
