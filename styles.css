@@ -8,10 +8,25 @@
     src: url('runescape.ttf') format('truetype');
   }
   
+  body {
+    font-family: 'RuneScape', sans-serif;
+    background-color: #222;
+    color: #fff;
+  }
+  
   h1 {
     font-family: 'RuneScape Bold', sans-serif;
   }
   
-  body {
-    font-family: 'RuneScape', sans-serif;
+  #loading {
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    border: 1px solid #fff;
+    display: none;
+  }
+  
+  #result img {
+    vertical-align: middle;
+    margin-right: 5px;
   }
