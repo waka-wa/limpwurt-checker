@@ -17,7 +17,7 @@
   }
   
   h1 {
-    font-size: 24px;
+    font-size: 52px;
     font-family: 'RuneScape Bold', sans-serif;
   }
   
@@ -27,11 +27,12 @@
     padding: 5px;
     border: 1px solid #fff;
     display: inline-block;
+    width: 360px;
     margin: 10px auto;
   }
   
   #result img {
-    font-size: 20px;
+    font-size: 22px;
     vertical-align: middle;
     margin-right: 5px;
   }
