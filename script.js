@@ -1,4 +1,4 @@
-const startingExp = 20041506;
+const startingExp = 16290962;
 const startTime = 1708977600;
 let minotaursKilled = 0;
 
@@ -9,7 +9,7 @@ async function fetchPlayerEXP() {
     return cachedData;
   }
 
-  const apiUrl = `https://osrs-hiscore-pulling.onrender.com/stats/OneChunkUp?skill=ranged`;
+  const apiUrl = `https://osrs-hiscore-pulling.onrender.com/stats/OneChunkUp?skill=hitpoints`;
 
   try {
     const response = await fetch(apiUrl);
@@ -40,7 +40,7 @@ async function updateResult() {
     const expGained = currentExp - startingExp;
     console.log('EXP Gained:', expGained);
     
-    const calculatedMinotaursKilled = Math.floor(expGained / 40);
+    const calculatedMinotaursKilled = Math.floor(expGained / 13.3);
     console.log('Calculated Minotaurs Killed:', calculatedMinotaursKilled);
     
     const totalMinotaursKilled = calculatedMinotaursKilled + minotaursKilled;
@@ -56,9 +56,9 @@ async function updateResult() {
     
     const resultElement = document.getElementById('result');
     resultElement.innerHTML = `
-      <p>Limpwurt has killed approximately ${totalMinotaursKilled} Minotaurs,  starting February 26th, 2024</p>
-      <p><img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"> Avg. killed per minute: ${minotaursPerMinute.toFixed(2)} - <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"> Avg. killed per day: ${Math.floor(minotaursPerDay)}</p>
-      <p><img src="Pure_essence.webp" alt="Pure Essence"> Estimated Pure Rune Essence obtained: ${pureRuneEssence}</p>
+      <p>Limpwurt has killed approximately ${totalMinotaursKilled.toLocaleString()} Minotaurs since February 28th, 2024</p>
+      <p><img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"> Avg. killed per minute: ${minotaursPerMinute.toFixed(2)} - Avg. killed per day: ${Math.floor(minotaursPerDay).toLocaleString()} <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"></p>
+      <p><img src="Pure_essence.webp" alt="Pure Essence"> Estimated Pure Rune Essence obtained: ${pureRuneEssence.toLocaleString()}</p>
     `;
   } else {
     console.error('Failed to fetch player EXP.');
