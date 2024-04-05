@@ -10,14 +10,17 @@
   
   body {
     text-align: center;
-    font-size: 18px;
+    font-size: 24px;
     font-family: 'RuneScape', sans-serif;
     background-color: #222;
     color: #fff;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: unset;
+    text-rendering: optimizeSpeed;
   }
   
   h1 {
-    font-size: 52px;
+    font-size: 64px;
     font-family: 'RuneScape Bold', sans-serif;
   }
   
@@ -32,7 +35,7 @@
   }
   
   #result img {
-    font-size: 22px;
+    font-size: 32px;
     vertical-align: middle;
     margin-right: 5px;
   }
