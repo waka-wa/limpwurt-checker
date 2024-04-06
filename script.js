@@ -50,15 +50,13 @@ async function updateResult() {
     const minotaursPerDay = minotaursPerMinute * 1440;
     const pureRuneEssence = Math.floor(totalMinotaursKilled / 20.2) * 15;
     const remainingEssence = Math.max(totalEssenceNeeded - pureRuneEssence, 0);
-    const progressPercentage = ((pureRuneEssence / totalEssenceNeeded) * 100).toFixed(2);
     const remainingMinotaurs = Math.max(totalMinotaursNeeded - totalMinotaursKilled, 0);
     const resultElement = document.getElementById('result');
     resultElement.innerHTML = `
       <div class="minotaurs-killed">
         <p><img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"> Limpwurt has slain ~<span class="green">${totalMinotaursKilled.toLocaleString()}</span> Minotaurs, ~<span class="green">${remainingMinotaurs.toLocaleString()}</span> more to go. <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"></p>
         <div class="minotaurs-per-day">
-          <p>Avg. killed per day: <span class="green">${Math.floor(minotaursPerDay).toLocaleString()}</span> - 
-          Avg. killed per minute: <span class="green">${minotaursPerMinute.toFixed(2)}</span></p>
+          <p>Avg. killed per day: <span class="green">${Math.floor(minotaursPerDay).toLocaleString()}</span></p>
         </div>
       </div>
       <br>
