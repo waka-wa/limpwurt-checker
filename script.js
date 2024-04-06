@@ -62,7 +62,7 @@ async function updateResult() {
         </div>
       </div>
       <br>
-      <p><img src="Pure_essence.webp" alt="Pure Essence">  Estimated Pure Rune Essence obtained: <span class="green">${pureRuneEssence.toLocaleString()}</span>, of ~${totalEssenceNeeded.toLocaleString()} needed  <img src="Pure_essence.webp" alt="Pure Essence"></p>
+      <p><img src="Pure_essence.webp" alt="Pure Essence">  Pure Rune Essence obtained: ~<span class="green">${pureRuneEssence.toLocaleString()}</span>, of ~${totalEssenceNeeded.toLocaleString()} needed  <img src="Pure_essence.webp" alt="Pure Essence"></p>
     `;
   } else {
     console.error('Failed to fetch player EXP.');
