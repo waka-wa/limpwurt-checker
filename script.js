@@ -55,16 +55,15 @@ async function updateResult() {
     const resultElement = document.getElementById('result');
     resultElement.innerHTML = `
       <div class="minotaurs-killed">
-        <p>Limpwurt has killed approximately <span class="green">${totalMinotaursKilled.toLocaleString()}</span> Minotaurs</p>
+        <p><img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"> Limpwurt has slain approximately <span class="green">${totalMinotaursKilled.toLocaleString()}</span> Minotaurs, of ~<span class="green">${remainingMinotaurs.toLocaleString()}</span> needed. <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"></p>
         <div class="minotaurs-per-day">
-          <p><img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"> Avg. killed per day: <span class="green">${Math.floor(minotaursPerDay).toLocaleString()}</span> <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"></p>
+          <p>Avg. killed per day: <span class="green">${Math.floor(minotaursPerDay).toLocaleString()}</span></p>
         </div>
         <div class="minotaurs-per-minute">
           <p>Avg. killed per minute: <span class="green">${minotaursPerMinute.toFixed(2)}</span></p>
         </div>
       </div>
-      <p>Limpwurt will need to kill roughly <span class="green">${remainingMinotaurs.toLocaleString()}</span> more Minotaurs</p>
-      <p><img src="Pure_essence.webp" alt="Pure Essence"> Estimated Pure Rune Essence obtained: <span class="green">${pureRuneEssence.toLocaleString()}</span>, of ~<span class="green">${totalEssenceNeeded.toLocaleString()}</span> needed, <span class="green">${progressPercentage}%</span> of his goal <img src="Pure_essence.webp" alt="Pure Essence"></p>
+      <p><img src="Pure_essence.webp" alt="Pure Essence">  Estimated Pure Rune Essence obtained: <span class="green">${pureRuneEssence.toLocaleString()}</span>, of ~${totalEssenceNeeded.toLocaleString()} needed - <span class="green">${progressPercentage}%</span>  <img src="Pure_essence.webp" alt="Pure Essence"></p>
     `;
   } else {
     console.error('Failed to fetch player EXP.');
