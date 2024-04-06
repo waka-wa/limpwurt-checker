@@ -55,7 +55,7 @@ async function updateResult() {
     const resultElement = document.getElementById('result');
     resultElement.innerHTML = `
       <div class="minotaurs-killed">
-        <p><img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"> Limpwurt has slain approximately <span class="green">${totalMinotaursKilled.toLocaleString()}</span> Minotaurs, <span class="green">${remainingMinotaurs.toLocaleString()}</span> more to go. <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"></p>
+        <p><img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"> Limpwurt has slain ~<span class="green">${totalMinotaursKilled.toLocaleString()}</span> Minotaurs, ~<span class="green">${remainingMinotaurs.toLocaleString()}</span> more to go. <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"></p>
         <div class="minotaurs-per-day">
           <p>Avg. killed per day: <span class="green">${Math.floor(minotaursPerDay).toLocaleString()}</span></p>
         </div>
