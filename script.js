@@ -55,7 +55,7 @@ async function updateResult() {
     const resultElement = document.getElementById('result');
     resultElement.innerHTML = `
       <div class="minotaurs-killed">
-        <p><img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"> Limpwurt has slain approximately <span class="green">${totalMinotaursKilled.toLocaleString()}</span> Minotaurs, of ~<span class="green">${remainingMinotaurs.toLocaleString()}</span> needed. <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"></p>
+        <p><img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"> Limpwurt has slain approximately <span class="green">${totalMinotaursKilled.toLocaleString()}</span> Minotaurs, <span class="green">${remainingMinotaurs.toLocaleString()}</span> more to go. <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"></p>
         <div class="minotaurs-per-day">
           <p>Avg. killed per day: <span class="green">${Math.floor(minotaursPerDay).toLocaleString()}</span></p>
         </div>
@@ -63,7 +63,8 @@ async function updateResult() {
           <p>Avg. killed per minute: <span class="green">${minotaursPerMinute.toFixed(2)}</span></p>
         </div>
       </div>
-      <p><img src="Pure_essence.webp" alt="Pure Essence">  Estimated Pure Rune Essence obtained: <span class="green">${pureRuneEssence.toLocaleString()}</span>, of ~${totalEssenceNeeded.toLocaleString()} needed - <span class="green">${progressPercentage}%</span>  <img src="Pure_essence.webp" alt="Pure Essence"></p>
+      <br>
+      <p><img src="Pure_essence.webp" alt="Pure Essence">  Estimated Pure Rune Essence obtained: <span class="green">${pureRuneEssence.toLocaleString()}</span>, of ~${totalEssenceNeeded.toLocaleString()} needed  <img src="Pure_essence.webp" alt="Pure Essence"></p>
     `;
   } else {
     console.error('Failed to fetch player EXP.');
