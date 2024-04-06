@@ -28,6 +28,9 @@ h1 {
 }
 
 #loading {
+  position: fixed;
+  top: 10px;
+  left: 10px;
   background-color: #000;
   color: #fff;
   padding: 5px;
@@ -37,16 +40,25 @@ h1 {
   margin: 10px auto;
 }
 
-#result img {
-  font-size: 32px;
-  vertical-align: middle;
-  margin-right: 5px;
+#result {
+  margin-top: 40px;
 }
 
+#result p {
+  margin-bottom: 10px;
+}
+
+#result .green {
+  color: #00ff00;
+  text-decoration: underline;
+}
+
+.minotaurs-killed:hover .minotaurs-per-day,
+.minotaurs-killed:hover .minotaurs-per-minute {
+  display: block;
+}
+
+.minotaurs-per-day,
 .minotaurs-per-minute {
   display: none;
-}
-
-.minotaurs-per-day:hover .minotaurs-per-minute {
-  display: block;
 }
