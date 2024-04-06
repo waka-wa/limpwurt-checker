@@ -1,44 +1,52 @@
 @font-face {
-    font-family: 'RuneScape Bold';
-    src: url('runescape_bold.ttf') format('truetype');
-  }
-  
-  @font-face {
-    font-family: 'RuneScape';
-    src: url('runescape.ttf') format('truetype');
-  }
-  
-  body {
-    text-align: center;
-    font-size: 18px;
-    font-family: 'RuneScape', sans-serif;
-    background-color: #222;
-    color: #fff;
-    -webkit-font-smoothing: none;
-    -moz-osx-font-smoothing: unset;
-    text-rendering: optimizeSpeed;
-  }
-  
-  h1 {
-    font-size: 64px;
-    font-family: 'RuneScape Bold', sans-serif;
-    -webkit-font-smoothing: none;
-    -moz-osx-font-smoothing: unset;
-    text-rendering: optimizeSpeed;
-  }
-  
-  #loading {
-    background-color: #000;
-    color: #fff;
-    padding: 5px;
-    border: 1px solid #fff;
-    display: inline-block;
-    width: 360px;
-    margin: 10px auto;
-  }
-  
-  #result img {
-    font-size: 32px;
-    vertical-align: middle;
-    margin-right: 5px;
-  }
+  font-family: 'RuneScape Bold';
+  src: url('runescape_bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'RuneScape';
+  src: url('runescape.ttf') format('truetype');
+}
+
+body {
+  text-align: center;
+  font-size: 18px;
+  font-family: 'RuneScape', sans-serif;
+  background-color: #222;
+  color: #fff;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  text-rendering: optimizeSpeed;
+}
+
+h1 {
+  font-size: 64px;
+  font-family: 'RuneScape Bold', sans-serif;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  text-rendering: optimizeSpeed;
+}
+
+#loading {
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  border: 1px solid #fff;
+  display: inline-block;
+  width: 360px;
+  margin: 10px auto;
+}
+
+#result img {
+  font-size: 32px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.minotaurs-per-minute {
+  display: none;
+}
+
+.minotaurs-per-day:hover .minotaurs-per-minute {
+  display: block;
+}

@@ -1,6 +1,7 @@
 const startingExp = 16290962;
 const startTime = 1708977600;
 const totalEssenceNeeded = 208000;
+const totalMinotaursNeeded = 320000;
 let minotaursKilled = 0;
 
 async function fetchPlayerEXP() {
@@ -50,10 +51,15 @@ async function updateResult() {
     const pureRuneEssence = Math.floor(totalMinotaursKilled / 20.2) * 15;
     const remainingEssence = Math.max(totalEssenceNeeded - pureRuneEssence, 0);
     const progressPercentage = ((pureRuneEssence / totalEssenceNeeded) * 100).toFixed(2);
+    const remainingMinotaurs = Math.max(totalMinotaursNeeded - totalMinotaursKilled, 0);
     const resultElement = document.getElementById('result');
     resultElement.innerHTML = `
-      <p>Limpwurt has killed approximately ${totalMinotaursKilled.toLocaleString()} Minotaurs since February 28th, 2024</p>
-      <p><img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"> Avg. killed per minute: ${minotaursPerMinute.toFixed(2)} - Avg. killed per day: ${Math.floor(minotaursPerDay).toLocaleString()} <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"></p>
+      <p>Limpwurt has killed approximately ${totalMinotaursKilled.toLocaleString()} Minotaurs</p>
+      <div class="minotaurs-per-day">
+        <p><img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"> Avg. killed per day: ${Math.floor(minotaursPerDay).toLocaleString()} <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head"></p>
+        <p class="minotaurs-per-minute">Avg. killed per minute: ${minotaursPerMinute.toFixed(2)}</p>
+      </div>
+      <p>Limpwurt will need to kill roughly ${remainingMinotaurs.toLocaleString()} more Minotaurs</p>
       <p><img src="Pure_essence.webp" alt="Pure Essence"> Estimated Pure Rune Essence obtained: ${pureRuneEssence.toLocaleString()} <img src="Pure_essence.webp" alt="Pure Essence"></p>
       <p>Total essence needed: ~${totalEssenceNeeded.toLocaleString()}. Limpwurt has achieved ${progressPercentage}% of his goal</p>
     `;
