@@ -11,7 +11,7 @@ async function fetchPlayerEXP() {
     return cachedData;
   }
 
-  const apiUrl = `https://osrs-hiscore-pulling.onrender.com/stats/OneChunkUp?skill=hitpoints`;
+  const apiUrl = `https://jpx3bpeukc.execute-api.us-east-2.amazonaws.com/osrshiscorepuller/stats?username=OneChunkUp&skill=hitpoints`;
 
   try {
     const response = await fetch(apiUrl);
