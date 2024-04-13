@@ -18,9 +18,14 @@ async function fetchPlayerEXP() {
   }
 
   const url = `${API_URL}?username=OneChunkUp&skill=${SKILL_NAME}`;
+  const secretToken = 'poopoopeepee';
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      headers: {
+        'Authorization': secretToken
+      }
+    });
     const data = await response.json();
     console.log('API Response:', data);
     cachedData = data.experience;
