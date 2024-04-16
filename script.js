@@ -1,4 +1,4 @@
-const API_URL = 'https://jpx3bpeukc.execute-api.us-east-2.amazonaws.com/osrshiscorepuller/stats';
+const API_URL = 'https://jpx3bpeukc.execute-api.us-east-2.amazonaws.com/osrshiscorepuller/';
 const SKILL_NAME = 'hitpoints';
 const STARTING_EXP = 16290962; 
 const START_TIME = 1708977600;
