@@ -1,5 +1,5 @@
 async function fetchPlayerEXP() {
-  const url = 'https://cors-anywhere.herokuapp.com/https://crystalmathlabs.com/track.php?player=onechunkup&skill=hitpoints&time=all';
+  const url = 'https://corsproxy.io/?https://crystalmathlabs.com/track.php?player=onechunkup&skill=hitpoints&time=all';
 
   try {
     const response = await fetch(url);
