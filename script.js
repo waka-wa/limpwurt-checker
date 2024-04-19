@@ -1,4 +1,4 @@
-const TRACK_URL = 'https://crystalmathlabs.com/track.php?player=onechunkup&skill=hitpoints&time=all';
+const TRACK_URL = 'https://corsproxy.io/?https://crystalmathlabs.com/track.php?player=onechunkup&skill=hitpoints&time=all';
 const STARTING_EXP = 16290962; 
 const TOTAL_ESSENCE_NEEDED = 208000;
 const TOTAL_MINOTAURS_NEEDED = 320000;
