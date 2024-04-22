@@ -80,8 +80,8 @@ async function updateResult() {
           <span class="spoiler" data-spoiler="${remainingMinotaurs.toLocaleString()}">[SPOILER]</span> more to go.
           <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head">
         </p>
-        <div class="minotaurs-per-day">
-          <p>Avg. killed per day: <span class="green">${Math.floor(minotaursPerDay).toLocaleString()}</span></p>
+        <div>
+        <p class="hint">(Click on [SPOILER] to reveal)</p>
         </div>
       </div>
       <br>
