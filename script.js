@@ -1,4 +1,4 @@
-const SKILL_NAME = 'hitpoints';
+cconst SKILL_NAME = 'hitpoints';
 const STARTING_EXP = 16290962; 
 const START_TIME = 1708977600;
 const TOTAL_ESSENCE_NEEDED = 208000;
@@ -17,18 +17,13 @@ async function fetchPlayerEXP() {
     return cachedData;
   }
 
-  const url = 'https://corsproxy.io/?https://crystalmathlabs.com/track.php?player=onechunkup&skill=hitpoints&time=all';
+  const url = 'https://secure.runescape.com/m=hiscore_oldschool/index_lite.json?player=OneChunkUp';
 
   try {
     const response = await fetch(url);
-    const html = await response.text();
-
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
-    const hitpointsRow = doc.querySelector('td.column_skill img[title="Hitpoints"]').parentNode.parentNode;
-    const xpElement = hitpointsRow.querySelector('td[title] span');
-    const xpText = xpElement.textContent.trim().replace(/,/g, '');
-    const xp = parseInt(xpText, 10);
+    const jsonData = await response.json();
+    const hitpointsData = jsonData.skills.find(skill => skill.id === 4);
+    const xp = hitpointsData.xp;
 
     console.log('Hitpoints XP:', xp);
     cachedData = xp;
