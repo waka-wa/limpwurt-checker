@@ -95,18 +95,28 @@ async function updateResult() {
     </div>
   `;
 
-    const spoilerElements = document.querySelectorAll('.spoiler');
-    spoilerElements.forEach(spoiler => {
-      spoiler.addEventListener('click', () => {
+  const spoilerElements = document.querySelectorAll('.spoiler');
+  spoilerElements.forEach(spoiler => {
+    spoiler.addEventListener('click', () => {
+      if (spoiler.classList.contains('revealed')) {
+        if (spoiler.dataset.spoilerImage) {
+          spoiler.textContent = spoiler.dataset.spoilerText;
+        } else {
+          spoiler.textContent = '[SPOILER]';
+        }
+        spoiler.classList.remove('revealed');
+      } else {
         if (spoiler.dataset.spoilerImage) {
           const imageSrc = spoiler.dataset.spoilerImage;
+          spoiler.dataset.spoilerText = spoiler.textContent;
           spoiler.innerHTML = `<img src="${imageSrc}" alt="Recent posted progress (April 17th)">`;
         } else {
           spoiler.textContent = spoiler.dataset.spoiler;
         }
         spoiler.classList.add('revealed');
-      });
+      }
     });
+  });
   } else {
     console.error('Failed to fetch Hitpoints XP.');
   }
