@@ -7,6 +7,8 @@
 
 :root {
   --rs-green: #00ff00;
+  --rs-black: #000;
+  --rs-white: #fff;
 }
 
 body {
@@ -14,10 +16,10 @@ body {
   font-size: 16px;
   font-family: 'RuneScape', sans-serif;
   background-color: #222;
-  color: #fff;
+  color: var(--rs-white);
   margin: 0 auto;
   max-width: 800px;
-  padding: 0 20px;
+  padding: 20px;
 }
 
 h1 {
@@ -31,9 +33,9 @@ body, h1 {
 }
 
 #loading {
-  background-color: #000;
-  border: 1px solid #fff;
-  color: #fff;
+  background-color: var(--rs-black);
+  border: 1px solid var(--rs-white);
+  color: var(--rs-white);
   display: inline-block;
   left: 10px;
   margin: 10px auto;
@@ -61,8 +63,8 @@ body, h1 {
 }
 
 .minotaurs-per-day {
-  background-color: #000;
-  border: 1px solid #fff;
+  background-color: var(--rs-black);
+  border: 1px solid var(--rs-white);
   display: none;
   left: 50%;
   padding: 5px;
@@ -75,6 +77,22 @@ body, h1 {
 
 .minotaurs-killed:hover .minotaurs-per-day {
   display: block;
+}
+
+.spoiler {
+  background-color: var(--rs-black);
+  color: var(--rs-black);
+  border: 1px solid var(--rs-white);
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+.spoiler:hover {
+  color: var(--rs-white);
+}
+
+.spoiler.revealed {
+  color: var(--rs-green);
 }
 
 img {

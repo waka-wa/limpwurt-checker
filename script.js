@@ -5,7 +5,7 @@ const TOTAL_ESSENCE_NEEDED = 208000;
 const TOTAL_MINOTAURS_NEEDED = 320000;
 const CACHE_DURATION = 600000; // 10 minutes
 
-let minotaursKilled = 0;
+let minotaursKilledManually = 0;
 let cachedData = null;
 let cacheTimestamp = 0;
 
@@ -42,7 +42,7 @@ async function fetchPlayerEXP() {
 }
 
 function updateMinotaurCount() {
-  minotaursKilled++;
+  minotaursKilledManually++;
   updateResult();
 }
 
@@ -60,7 +60,7 @@ async function updateResult() {
     const calculatedMinotaursKilled = Math.floor(expGained / 13.3);
     console.log('Calculated Minotaurs Killed:', calculatedMinotaursKilled);
 
-    const totalMinotaursKilled = calculatedMinotaursKilled + minotaursKilled;
+    const totalMinotaursKilled = calculatedMinotaursKilled + minotaursKilledManually;
 
     const currentTime = Math.floor(Date.now() / 1000);
     const elapsedSeconds = currentTime - START_TIME;
@@ -77,26 +77,35 @@ async function updateResult() {
       <div class="minotaurs-killed">
         <p>
           <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head">
-          Limpwurt has slain ~<span class="green">${totalMinotaursKilled.toLocaleString()}</span> Minotaurs, 
-          ~<span class="green">${remainingMinotaurs.toLocaleString()}</span> more to go.
+          Limpwurt has slain <span class="spoiler" data-spoiler="${totalMinotaursKilled.toLocaleString()}">[SPOILER]</span> Minotaurs, 
+          <span class="spoiler" data-spoiler="${remainingMinotaurs.toLocaleString()}">[SPOILER]</span> more to go.
           <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head">
         </p>
         <div class="minotaurs-per-day">
-        <p>Avg. killed per day: <span class="green">${Math.floor(minotaursPerDay).toLocaleString()}</span></p>
+          <p>Avg. killed per day: <span class="green">${Math.floor(minotaursPerDay).toLocaleString()}</span></p>
+        </div>
       </div>
-    </div>
-    <br>
-    <p>
-      <img src="Pure_essence.webp" alt="Pure Essence">
-      Pure Rune Essence obtained: ~<span class="green">${pureRuneEssence.toLocaleString()}</span>, 
-      of ~${TOTAL_ESSENCE_NEEDED.toLocaleString()} needed
-      <img src="Pure_essence.webp" alt="Pure Essence">  
-    </p>
-  `;
-} else {
-  console.error('Failed to fetch Hitpoints XP.');
-}
-loadingElement.style.display = 'none';
+      <br>
+      <p>
+        <img src="Pure_essence.webp" alt="Pure Essence">
+        Pure Rune Essence obtained: <span class="spoiler" data-spoiler="${pureRuneEssence.toLocaleString()}">[SPOILER]</span>, 
+        of ~${TOTAL_ESSENCE_NEEDED.toLocaleString()} needed
+        <img src="Pure_essence.webp" alt="Pure Essence">  
+      </p>
+    `;
+
+    const spoilerElements = document.querySelectorAll('.spoiler');
+    spoilerElements.forEach(spoiler => {
+      spoiler.addEventListener('click', () => {
+        spoiler.textContent = spoiler.dataset.spoiler;
+        spoiler.classList.add('revealed');
+      });
+    });
+  } else {
+    console.error('Failed to fetch Hitpoints XP.');
+  }
+
+  loadingElement.style.display = 'none';
 }
 
 updateResult();
