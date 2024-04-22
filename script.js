@@ -3,7 +3,7 @@ const STARTING_EXP = 16290962;
 const START_TIME = 1708977600;
 const TOTAL_ESSENCE_NEEDED = 208000;
 const TOTAL_MINOTAURS_NEEDED = 320000;
-const CACHE_DURATION = 600000; // 10 minutes
+const CACHE_DURATION = 600000;
 
 let minotaursKilledManually = 0;
 let cachedData = null;
@@ -23,13 +23,12 @@ async function fetchPlayerEXP() {
     const response = await fetch(url);
     const html = await response.text();
 
-    // Parsing HTML to extract Hitpoints XP
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
     const hitpointsRow = doc.querySelector('td.column_skill img[title="Hitpoints"]').parentNode.parentNode;
     const xpElement = hitpointsRow.querySelector('td[title] span');
-    const xpText = xpElement.textContent.trim().replace(/,/g, ''); // Removing commas from XP text
-    const xp = parseInt(xpText, 10); // Parsing XP as integer
+    const xpText = xpElement.textContent.trim().replace(/,/g, '');
+    const xp = parseInt(xpText, 10);
 
     console.log('Hitpoints XP:', xp);
     cachedData = xp;

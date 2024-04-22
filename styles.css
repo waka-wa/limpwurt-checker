@@ -81,14 +81,10 @@ body, h1 {
 
 .spoiler {
   background-color: var(--rs-black);
-  color: var(--rs-black);
+  color: var(--rs-white);
   border: 1px solid var(--rs-white);
   padding: 0 5px;
   cursor: pointer;
-}
-
-.spoiler:hover {
-  color: var(--rs-white);
 }
 
 .spoiler.revealed {
