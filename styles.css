@@ -92,10 +92,47 @@ body, h1 {
 }
 
 .spoiler.revealed {
-  color: var(--rs-green);
+  background-color: transparent;
+  border: none;
+  padding: 0;
 }
 
+.spoiler.revealed img {
+  display: block;
+  margin: 0 auto;
+}
 img {
   max-width: 100%;
   height: auto;
+}
+
+.limpwurt-image {
+  max-width: 75%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  color: var(--rs-white);
+  text-decoration: none;
+  margin: 0 32px;
+}
+
+.links img {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.links span {
+  vertical-align: middle;
+  text-decoration: underline;
 }

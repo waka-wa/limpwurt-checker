@@ -73,30 +73,37 @@ async function updateResult() {
 
     const resultElement = document.getElementById('result');
     resultElement.innerHTML = `
-      <div class="minotaurs-killed">
-        <p>
-          <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head">
-          Limpwurt has slain ~ <span class="spoiler" data-spoiler="${totalMinotaursKilled.toLocaleString()}">[SPOILER]</span> Minotaurs, ~  
-          <span class="spoiler" data-spoiler="${remainingMinotaurs.toLocaleString()}">[SPOILER]</span> more to go.
-          <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head">
-        </p>
-        <div>
-        <p class="hint">(All values are approximations. Click on [SPOILER] to reveal)</p>
-        </div>
-      </div>
-      <br>
+    <div class="minotaurs-killed">
+      <p>
+        <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head">
+        Limpwurt has slain ~ <span class="spoiler" data-spoiler="${totalMinotaursKilled.toLocaleString()}">[SPOILER]</span> Minotaurs, ~  
+        <span class="spoiler" data-spoiler="${remainingMinotaurs.toLocaleString()}">[SPOILER]</span> more to go.
+        <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head">
+      </p>
       <p>
         <img src="Pure_essence.webp" alt="Pure Essence">
         Pure Rune Essence obtained: ~ <span class="spoiler" data-spoiler="${pureRuneEssence.toLocaleString()}">[SPOILER]</span> -  
         of ${TOTAL_ESSENCE_NEEDED.toLocaleString()} needed
         <img src="Pure_essence.webp" alt="Pure Essence">  
       </p>
-    `;
+      <p class="hint">(All values are approximations. Click on [SPOILER] to reveal)</p>
+      <div>
+        <p>
+          <span class="spoiler" data-spoiler-image="most_recent_post.webp">[SPOILER] - Recent posted progress (April 17th)</span>
+        </p>
+      </div>
+    </div>
+  `;
 
     const spoilerElements = document.querySelectorAll('.spoiler');
     spoilerElements.forEach(spoiler => {
       spoiler.addEventListener('click', () => {
-        spoiler.textContent = spoiler.dataset.spoiler;
+        if (spoiler.dataset.spoilerImage) {
+          const imageSrc = spoiler.dataset.spoilerImage;
+          spoiler.innerHTML = `<img src="${imageSrc}" alt="Recent posted progress (April 17th)">`;
+        } else {
+          spoiler.textContent = spoiler.dataset.spoiler;
+        }
         spoiler.classList.add('revealed');
       });
     });
