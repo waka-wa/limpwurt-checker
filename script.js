@@ -1,4 +1,4 @@
-cconst SKILL_NAME = 'hitpoints';
+const SKILL_NAME = 'hitpoints';
 const STARTING_EXP = 16290962; 
 const START_TIME = 1708977600;
 const TOTAL_ESSENCE_NEEDED = 208000;
