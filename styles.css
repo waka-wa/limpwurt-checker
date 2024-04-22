@@ -6,16 +6,16 @@
 }
 
 :root {
-  --rs-green: #00ff00;
+  --rs-green: #2BCB6C;
   --rs-black: #000;
-  --rs-white: #fff;
+  --rs-white: #CFDDE0;
 }
 
 body {
   text-align: center;
   font-size: 16px;
   font-family: 'RuneScape', sans-serif;
-  background-color: #222;
+  background-color: #303237;
   color: var(--rs-white);
   margin: 0 auto;
   max-width: 800px;

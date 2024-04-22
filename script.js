@@ -76,7 +76,7 @@ async function updateResult() {
       <div class="minotaurs-killed">
         <p>
           <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head">
-          Limpwurt has slain ~ <span class="spoiler" data-spoiler="${totalMinotaursKilled.toLocaleString()}">[SPOILER]</span> Minotaurs -  
+          Limpwurt has slain ~ <span class="spoiler" data-spoiler="${totalMinotaursKilled.toLocaleString()}">[SPOILER]</span> Minotaurs, ~  
           <span class="spoiler" data-spoiler="${remainingMinotaurs.toLocaleString()}">[SPOILER]</span> more to go.
           <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head">
         </p>
