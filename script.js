@@ -81,7 +81,7 @@ async function updateResult() {
           <img src="Ensouled_minotaur_head.webp" alt="Minotaur Head">
         </p>
         <div>
-        <p class="hint">(Click on [SPOILER] to reveal)</p>
+        <p class="hint">(All values are approximations. Click on [SPOILER] to reveal)</p>
         </div>
       </div>
       <br>
