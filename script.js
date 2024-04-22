@@ -17,7 +17,7 @@ async function fetchPlayerEXP() {
     return cachedData;
   }
 
-  const url = 'https://secure.runescape.com/m=hiscore_oldschool/index_lite.json?player=OneChunkUp';
+  const url = 'https://corsproxy.io/?https://secure.runescape.com/m=hiscore_oldschool/index_lite.json?player=OneChunkUp';
 
   try {
     const response = await fetch(url);
